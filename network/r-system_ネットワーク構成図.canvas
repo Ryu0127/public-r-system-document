@@ -1,0 +1,43 @@
+{
+	"nodes":[
+		{"id":"048889a1abf88f26","type":"text","text":"#### GitHub\n- CI/CD（To-ApiServer）：\n　GitHubActionによる自動デプロイ","x":-200,"y":-540,"width":300,"height":160,"color":"2"},
+		{"id":"16b93342b646812b","type":"text","text":"#### ClaudeCodeWeb\n主な用途：\n・ブラウザからの実行","x":1160,"y":-540,"width":220,"height":160,"color":"2"},
+		{"id":"09a1fd6776ed4daa","type":"text","text":"#### Private-Front/Api/BatServer\n- サーバー：Raspberry Pi 4\n- 開発言語（Front）：React\n- 開発言語（Api）：Spring Boot\n- 開発言語（バッチ）：python\n　※主に24/365でAPIを実行するのみ","x":140,"y":80,"width":340,"height":220,"color":"5"},
+		{"id":"a64f642ab38ac421","type":"text","text":"#### Public-Document\n主な用途：\n・公開サーバー向けドキュメントの管理\n・コードの自動生成\n・公開可能な情報の管理","x":680,"y":-320,"width":300,"height":180,"color":"6"},
+		{"id":"d801c47a2c90099a","type":"text","text":"#### Public-ApiServer\n- サーバー：ConoHa\n- 開発言語：Laravel","x":-680,"y":-300,"width":300,"height":160,"color":"5"},
+		{"id":"16607e83f4cb1509","type":"text","text":"## PrivateSystem","x":100,"y":0,"width":250,"height":60},
+		{"id":"01705b2625c93a3b","type":"text","text":"#### YoutubeApi\n主な用途：\n・Youtube情報の取得","x":-680,"y":125,"width":300,"height":130,"color":"1"},
+		{"id":"aa63ebc4bd01e909","type":"text","text":"## ExternalApi","x":-740,"y":55,"width":270,"height":50},
+		{"id":"bee911709125d007","type":"text","text":"#### Public-FrontServer\n- サーバー：Vercel\n- 開発言語：React\n- CI/CD：自動デプロイ","x":-1240,"y":-300,"width":290,"height":160,"color":"5"},
+		{"id":"93fe0311df343085","type":"text","text":"## PublicSystem","x":-1300,"y":-380,"width":250,"height":60},
+		{"id":"99772d98d4fc1f3a","type":"text","text":"#### ClaudeCode\n主な用途：\n・ローカル環境からの実行","x":1160,"y":-320,"width":220,"height":180,"color":"2"},
+		{"id":"7e8d3c71fd2d69c9","type":"text","text":"#### Private-NasServer\n- サーバー：Raspberry Pi 4","x":680,"y":340,"width":300,"height":160,"color":"5"},
+		{"id":"350cc34ec19d79c1","type":"text","text":"#### Private-Document\n主な用途：\n・非公開サーバー向けドキュメントの管理\n・コードの自動生成\n・非公開情報の管理","x":680,"y":98,"width":300,"height":185,"color":"6"},
+		{"id":"6a10f571cc476c73","type":"text","text":"#### WeatherApi\n主な用途：\n・気象情報の取得","x":-680,"y":300,"width":300,"height":140,"color":"1"},
+		{"id":"22031232debba207","type":"text","text":"#### Slack","x":-1120,"y":700,"width":240,"height":80,"color":"2"},
+		{"id":"5a3c196cf49de20b","type":"text","text":"#### SwitchBotApi\n主な用途：\n・自宅のスマート家電の操作/情報取得","x":-680,"y":490,"width":300,"height":140,"color":"1"},
+		{"id":"174a394a3c41d9a2","type":"text","text":"#### SmartHome","x":-1120,"y":520,"width":240,"height":80,"color":"2"},
+		{"id":"eeda2da893c29230","type":"text","text":"#### SlackBotApi\n主な用途：\n・システム通知","x":-680,"y":670,"width":300,"height":140,"color":"1"}
+	],
+	"edges":[
+		{"id":"8f27bb9114e90803","fromNode":"d801c47a2c90099a","fromSide":"right","toNode":"09a1fd6776ed4daa","toSide":"left"},
+		{"id":"a5664e11abe155b2","fromNode":"09a1fd6776ed4daa","fromSide":"left","toNode":"d801c47a2c90099a","toSide":"right"},
+		{"id":"57dea319a54e8363","fromNode":"048889a1abf88f26","fromSide":"left","toNode":"bee911709125d007","toSide":"right"},
+		{"id":"9d062d26bb015487","fromNode":"048889a1abf88f26","fromSide":"left","toNode":"d801c47a2c90099a","toSide":"right"},
+		{"id":"368c9aa32abf47b0","fromNode":"16b93342b646812b","fromSide":"left","toNode":"048889a1abf88f26","toSide":"right"},
+		{"id":"abf25ffd0dc913f2","fromNode":"a64f642ab38ac421","fromSide":"left","toNode":"048889a1abf88f26","toSide":"right"},
+		{"id":"d2d6ad0c55df7134","fromNode":"99772d98d4fc1f3a","fromSide":"left","toNode":"a64f642ab38ac421","toSide":"right"},
+		{"id":"679e2ddef1032429","fromNode":"bee911709125d007","fromSide":"right","toNode":"d801c47a2c90099a","toSide":"left"},
+		{"id":"223ab0a47096a6c6","fromNode":"09a1fd6776ed4daa","fromSide":"right","toNode":"7e8d3c71fd2d69c9","toSide":"left"},
+		{"id":"9e04f1e018c15789","fromNode":"99772d98d4fc1f3a","fromSide":"left","toNode":"7e8d3c71fd2d69c9","toSide":"right"},
+		{"id":"74cbe74aafd041ab","fromNode":"048889a1abf88f26","fromSide":"right","toNode":"a64f642ab38ac421","toSide":"left"},
+		{"id":"a7087a730e0776d3","fromNode":"99772d98d4fc1f3a","fromSide":"left","toNode":"350cc34ec19d79c1","toSide":"right"},
+		{"id":"a238f091788a3ec9","fromNode":"350cc34ec19d79c1","fromSide":"left","toNode":"09a1fd6776ed4daa","toSide":"right"},
+		{"id":"d829b4d6d96c9b02","fromNode":"09a1fd6776ed4daa","fromSide":"left","toNode":"01705b2625c93a3b","toSide":"right"},
+		{"id":"a6fee6c986dd643f","fromNode":"09a1fd6776ed4daa","fromSide":"left","toNode":"6a10f571cc476c73","toSide":"right"},
+		{"id":"6e3dba6eba2f32f7","fromNode":"09a1fd6776ed4daa","fromSide":"left","toNode":"5a3c196cf49de20b","toSide":"right"},
+		{"id":"cb4e6d5d5d90212b","fromNode":"09a1fd6776ed4daa","fromSide":"left","toNode":"eeda2da893c29230","toSide":"right"},
+		{"id":"152c7d57060d5a55","fromNode":"eeda2da893c29230","fromSide":"left","toNode":"22031232debba207","toSide":"right"},
+		{"id":"7ccde553f7f17b1f","fromNode":"5a3c196cf49de20b","fromSide":"left","toNode":"174a394a3c41d9a2","toSide":"right"}
+	]
+}

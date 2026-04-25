@@ -1,0 +1,196 @@
+{
+  "main": {
+    "id": "274f12d397a132cc",
+    "type": "split",
+    "children": [
+      {
+        "id": "d7ed8dfdbac6b325",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "28762de9cf663558",
+            "type": "leaf",
+            "state": {
+              "type": "canvas",
+              "state": {
+                "file": "network/r-system_ネットワーク構成図.canvas",
+                "viewState": {
+                  "x": 267.73318013864633,
+                  "y": 149.42449207630432,
+                  "zoom": -0.6666666666666665
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "r-system_ネットワーク構成図"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "dafe8831e94c9de1",
+    "type": "split",
+    "children": [
+      {
+        "id": "026837dbe43384f0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8f49ea3ec990a910",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "ファイルエクスプローラ"
+            }
+          },
+          {
+            "id": "d4f73c4875f6225b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "検索"
+            }
+          },
+          {
+            "id": "e9bedb070b2d2f6b",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "ブックマーク"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "eb65ba44f2c98bf8",
+    "type": "split",
+    "children": [
+      {
+        "id": "e36627321594a989",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0cbc2f887cab9cf3",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "network/r-system_ネットワーク構成図.canvas",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "r-system_ネットワーク構成図へのバックリンク"
+            }
+          },
+          {
+            "id": "c80a6c970c1dfb39",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "network/r-system_ネットワーク構成図.canvas",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "r-system_ネットワーク構成図からのアウトゴーイングリンク"
+            }
+          },
+          {
+            "id": "eb915fb88f5a97b7",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "タグ"
+            }
+          },
+          {
+            "id": "50eaef06c3677155",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "すべてのプロパティ"
+            }
+          },
+          {
+            "id": "3f93b1db2eb2a04e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "network/r-system_ネットワーク構成図.canvas",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "r-system_ネットワーク構成図のアウトライン"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:クイックスイッチャーを開く": false,
+      "graph:グラフビューを開く": false,
+      "canvas:新規キャンバスを作成": false,
+      "daily-notes:今日のデイリーノートを開く": false,
+      "templates:テンプレートを挿入": false,
+      "command-palette:コマンドパレットを開く": false,
+      "bases:新規ベースを作成": false
+    }
+  },
+  "active": "28762de9cf663558",
+  "lastOpenFiles": [
+    "README.md",
+    "network/r-system_ネットワーク構成図.canvas",
+    "network",
+    "script"
+  ]
+}
