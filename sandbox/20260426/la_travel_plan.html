@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ロサンゼルス一人旅 旅行計画書 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --border: #2e3350;
+    --gold: #e8b84b;
+    --gold-light: #f5d07a;
+    --blue: #4a9eff;
+    --blue-soft: #1e3a5f;
+    --red: #ff5c5c;
+    --red-soft: #3d1a1a;
+    --green: #4ecb71;
+    --green-soft: #1a3d2a;
+    --orange: #ff8c42;
+    --orange-soft: #3d2210;
+    --purple: #a78bfa;
+    --text: #e8eaf0;
+    --text-muted: #8892a4;
+    --text-dim: #5a6278;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, #0f1117 0%, #1a1d27 40%, #0d2140 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 40px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(232,184,75,0.12) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: 30%;
+    width: 400px; height: 300px;
+    background: radial-gradient(circle, rgba(74,158,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #fff 0%, var(--gold-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-sub {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid;
+  }
+  .badge-gold { background: rgba(232,184,75,0.1); border-color: rgba(232,184,75,0.3); color: var(--gold-light); }
+  .badge-blue { background: rgba(74,158,255,0.1); border-color: rgba(74,158,255,0.3); color: #7bb8ff; }
+  .badge-green { background: rgba(78,203,113,0.1); border-color: rgba(78,203,113,0.3); color: #7dd89a; }
+
+  /* LAYOUT */
+  .container { max-width: 960px; margin: 0 auto; padding: 40px 24px; }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .icon-gold { background: rgba(232,184,75,0.15); }
+  .icon-blue { background: rgba(74,158,255,0.15); }
+  .icon-green { background: rgba(78,203,113,0.15); }
+  .icon-red { background: rgba(255,92,92,0.15); }
+  .icon-orange { background: rgba(255,140,66,0.15); }
+  .icon-purple { background: rgba(167,139,250,0.15); }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .section-subtitle { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+  section { margin-bottom: 52px; }
+
+  /* OVERVIEW CARDS */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .overview-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px;
+  }
+  .overview-card .label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+  .overview-card .value { font-size: 22px; font-weight: 700; color: var(--gold-light); font-family: 'Playfair Display', serif; }
+  .overview-card .desc { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+  .overview-wide {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .overview-item { flex: 1; min-width: 140px; }
+  .overview-item .oi-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
+  .overview-item .oi-value { font-size: 15px; font-weight: 500; }
+
+  /* SCHEDULE */
+  .schedule-day {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+  }
+  .day-num {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--gold) 0%, #c8943a 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .day-num .d { font-size: 9px; font-weight: 700; color: rgba(0,0,0,0.6); letter-spacing: 1px; text-transform: uppercase; }
+  .day-num .n { font-size: 20px; font-weight: 700; color: #000; line-height: 1; }
+  .day-info h3 { font-size: 16px; font-weight: 700; color: #fff; }
+  .day-info p { font-size: 12px; color: var(--text-muted); }
+  .day-body { padding: 16px 20px; }
+  .timeline { position: relative; padding-left: 20px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 5px; top: 8px; bottom: 8px;
+    width: 1px; background: var(--border);
+  }
+  .tl-item { position: relative; margin-bottom: 14px; }
+  .tl-item:last-child { margin-bottom: 0; }
+  .tl-dot {
+    position: absolute; left: -19px; top: 5px;
+    width: 9px; height: 9px; border-radius: 50%;
+    background: var(--gold); border: 2px solid var(--bg);
+  }
+  .tl-dot.blue { background: var(--blue); }
+  .tl-dot.green { background: var(--green); }
+  .tl-dot.orange { background: var(--orange); }
+  .tl-dot.red { background: var(--red); }
+  .tl-time { font-size: 11px; color: var(--text-dim); margin-bottom: 2px; }
+  .tl-text { font-size: 14px; color: var(--text); }
+  .tl-note { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .tl-tag {
+    display: inline-block; padding: 2px 8px; border-radius: 4px;
+    font-size: 10px; font-weight: 700; letter-spacing: 1px;
+    margin-left: 6px; vertical-align: middle;
+  }
+  .tag-free { background: rgba(78,203,113,0.2); color: var(--green); }
+  .tag-paid { background: rgba(232,184,75,0.2); color: var(--gold); }
+  .tag-warn { background: rgba(255,92,92,0.2); color: var(--red); }
+  .tag-uber { background: rgba(74,158,255,0.2); color: var(--blue); }
+
+  /* BUDGET */
+  .budget-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .budget-table th {
+    background: var(--surface2);
+    padding: 12px 18px;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--text-muted); font-weight: 500;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .budget-table td {
+    padding: 13px 18px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(46,51,80,0.5);
+    vertical-align: middle;
+  }
+  .budget-table tr:last-child td { border-bottom: none; }
+  .budget-table .cat { color: var(--text-muted); font-size: 11px; }
+  .budget-table .amt { font-weight: 700; text-align: right; color: var(--gold-light); font-family: 'Playfair Display', serif; font-size: 16px; }
+  .budget-table .total-row td { background: rgba(232,184,75,0.06); border-top: 1px solid var(--gold); padding: 16px 18px; }
+  .budget-table .total-row .amt { font-size: 20px; color: var(--gold); }
+  .budget-note {
+    margin-top: 14px;
+    padding: 14px 18px;
+    background: rgba(74,158,255,0.07);
+    border: 1px solid rgba(74,158,255,0.2);
+    border-radius: 10px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .budget-note strong { color: #7bb8ff; }
+
+  /* SPOTS */
+  .spots-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .spot-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    transition: border-color 0.2s;
+  }
+  .spot-card:hover { border-color: var(--gold); }
+  .spot-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+  .spot-emoji { font-size: 24px; }
+  .spot-name { font-weight: 700; font-size: 15px; color: #fff; }
+  .spot-area { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .spot-desc { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+  .spot-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .spot-tag {
+    padding: 3px 10px; border-radius: 6px; font-size: 11px; font-weight: 500;
+  }
+  .st-free { background: rgba(78,203,113,0.15); color: var(--green); }
+  .st-art { background: rgba(167,139,250,0.15); color: var(--purple); }
+  .st-walk { background: rgba(74,158,255,0.15); color: var(--blue); }
+  .st-metro { background: rgba(232,184,75,0.15); color: var(--gold); }
+  .st-uber { background: rgba(255,140,66,0.15); color: var(--orange); }
+  .st-exp { background: rgba(255,92,92,0.15); color: var(--red); }
+
+  /* TODO */
+  .todo-group { margin-bottom: 24px; }
+  .todo-group-title {
+    font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+    font-weight: 700; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .tg-red { color: var(--red); }
+  .tg-orange { color: var(--orange); }
+  .tg-green { color: var(--green); }
+  .todo-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 8px;
+  }
+  .todo-check {
+    width: 22px; height: 22px; border-radius: 6px; flex-shrink: 0; margin-top: 1px;
+    border: 2px solid; display: flex; align-items: center; justify-content: center;
+  }
+  .check-red { border-color: var(--red); background: rgba(255,92,92,0.1); }
+  .check-orange { border-color: var(--orange); background: rgba(255,140,66,0.1); }
+  .check-green { border-color: var(--green); background: rgba(78,203,113,0.1); }
+  .todo-content { flex: 1; }
+  .todo-title { font-size: 14px; font-weight: 500; color: #fff; }
+  .todo-desc { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
+  .todo-link { font-size: 12px; color: var(--blue); text-decoration: none; }
+  .todo-link:hover { text-decoration: underline; }
+  .todo-deadline {
+    font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 6px; flex-shrink: 0; margin-top: 2px;
+  }
+  .dl-red { background: rgba(255,92,92,0.15); color: var(--red); }
+  .dl-orange { background: rgba(255,140,66,0.15); color: var(--orange); }
+  .dl-green { background: rgba(78,203,113,0.15); color: var(--green); }
+
+  /* SAFETY */
+  .safety-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .safety-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .safety-card h4 { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .safety-card ul { padding-left: 16px; }
+  .safety-card li { font-size: 13px; color: var(--text-muted); margin-bottom: 5px; line-height: 1.5; }
+  .alert-box {
+    background: rgba(255,92,92,0.07);
+    border: 1px solid rgba(255,92,92,0.25);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .alert-icon { font-size: 20px; flex-shrink: 0; }
+  .alert-text { font-size: 13px; color: #ffaaaa; line-height: 1.6; }
+  .alert-text strong { color: var(--red); }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: var(--border); margin: 8px 0 32px; }
+
+  /* FOOTER */
+  .footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 28px 40px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+  .footer strong { color: var(--gold); }
+
+  /* Print styles */
+  @media print {
+    body { background: #fff; color: #000; }
+    .hero { background: #f5f5f5 !important; }
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .overview-grid { grid-template-columns: repeat(2, 1fr); }
+    .spots-grid { grid-template-columns: 1fr; }
+    .safety-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">✈ Travel Planning Document 2026</div>
+  <h1>ロサンゼルス一人旅<br>旅行計画書</h1>
+  <p class="hero-sub">オアフ島経由 ｜ 2026年5月3日〜8日 ｜ 5泊6日</p>
+  <div class="hero-badges">
+    <span class="badge badge-gold">🗓 5月3日〜8日</span>
+    <span class="badge badge-blue">✈ 羽田/成田 → オアフ → LAX</span>
+    <span class="badge badge-green">👤 一人旅</span>
+    <span class="badge badge-gold">🚇 公共交通メイン</span>
+    <span class="badge badge-blue">🔐 ESTA申請が必須</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 旅行概要 -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon icon-gold">🗺</div>
+      <div>
+        <div class="section-title">旅行概要</div>
+        <div class="section-subtitle">Trip Overview</div>
+      </div>
+    </div>
+
+    <div class="overview-grid">
+      <div class="overview-card">
+        <div class="label">期間</div>
+        <div class="value">5泊6日</div>
+        <div class="desc">5/3（日）〜 5/8（金）</div>
+      </div>
+      <div class="overview-card">
+        <div class="label">目的地</div>
+        <div class="value">LA</div>
+        <div class="desc">ロサンゼルス, カリフォルニア</div>
+      </div>
+      <div class="overview-card">
+        <div class="label">経由地</div>
+        <div class="value">オアフ</div>
+        <div class="desc">ハワイ州ホノルル</div>
+      </div>
+    </div>
+
+    <div class="overview-wide">
+      <div class="overview-item">
+        <div class="oi-label">入国手続き</div>
+        <div class="oi-value">ESTA（電子渡航認証）</div>
+      </div>
+      <div class="overview-item">
+        <div class="oi-label">パスポート</div>
+        <div class="oi-value">2029年有効期限 ✅</div>
+      </div>
+      <div class="overview-item">
+        <div class="oi-label">移動手段</div>
+        <div class="oi-value">Metro・バス＋夜間Uber</div>
+      </div>
+      <div class="overview-item">
+        <div class="oi-label">ホテルエリア</div>
+        <div class="oi-value">ハリウッド・ハイランド周辺</div>
+      </div>
+      <div class="overview-item">
+        <div class="oi-label">外務省危険情報</div>
+        <div class="oi-value" style="color:#4ecb71">アメリカ：問題なし ✅</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- スケジュール -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon icon-blue">📅</div>
+      <div>
+        <div class="section-title">モデルスケジュール</div>
+        <div class="section-subtitle">5-Day Itinerary</div>
+      </div>
+    </div>
+
+    <!-- Day 1 -->
+    <div class="schedule-day">
+      <div class="day-header">
+        <div class="day-num"><div class="d">day</div><div class="n">1</div></div>
+        <div class="day-info">
+          <h3>5月3日（日）出発・オアフ島到着</h3>
+          <p>日本 → ホノルル（オアフ島）</p>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-time">午前</div>
+            <div class="tl-text">日本出発（羽田 or 成田）</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot orange"></div>
+            <div class="tl-time">現地時間 午前〜昼</div>
+            <div class="tl-text">ホノルル（ダニエル・K・イノウエ国際空港）到着</div>
+            <div class="tl-note">※ ハワイはアメリカ領のため、ここでUSの入国審査（ESTA確認）あり</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot blue"></div>
+            <div class="tl-time">午後</div>
+            <div class="tl-text">オアフ島散策 ／ ワイキキビーチ周辺でのんびり</div>
+            <div class="tl-note">時差ぼけ対策に軽く体を動かすのがおすすめ</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot green"></div>
+            <div class="tl-time">夜</div>
+            <div class="tl-text">オアフ島のホテルに宿泊（翌日LA移動のため早めに休む）</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 2 -->
+    <div class="schedule-day">
+      <div class="day-header">
+        <div class="day-num"><div class="d">day</div><div class="n">2</div></div>
+        <div class="day-info">
+          <h3>5月4日（月）オアフ → ロサンゼルス移動</h3>
+          <p>ホノルル → LAX → ホテルチェックイン</p>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-time">午前</div>
+            <div class="tl-text">ホノルル空港へ移動・LA行き便に搭乗（約5時間）</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot orange"></div>
+            <div class="tl-time">昼〜午後</div>
+            <div class="tl-text">LAX到着 → Uber/Lyftでホテルへ<span class="tl-tag tag-uber">Uber推奨</span></div>
+            <div class="tl-note">空港からハリウッドまで約40〜60分（渋滞次第）</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot blue"></div>
+            <div class="tl-time">夕方</div>
+            <div class="tl-text">ハリウッド・ウォーク・オブ・フェーム 軽く散策</div>
+            <div class="tl-note">ホテル周辺を把握しておくとよい</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot green"></div>
+            <div class="tl-time">夜</div>
+            <div class="tl-text">近隣レストランで夕食 → 早めに就寝（時差調整）</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 3 -->
+    <div class="schedule-day">
+      <div class="day-header">
+        <div class="day-num"><div class="d">day</div><div class="n">3</div></div>
+        <div class="day-info">
+          <h3>5月5日（火）アート＆ビーチの日</h3>
+          <p>ゲティ・センター → ベニスビーチ → アボット・キニー</p>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-time">10:00</div>
+            <div class="tl-text">ゲティ・センター 到着<span class="tl-tag tag-free">入場無料</span></div>
+            <div class="tl-note">ダ・ヴィンチ・レンブラントなど名画鑑賞 ／ LA眺望も絶景（2〜3時間）</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot blue"></div>
+            <div class="tl-time">13:00</div>
+            <div class="tl-text">Uber or バスでベニスビーチへ移動<span class="tl-tag tag-uber">Uber推奨</span></div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot orange"></div>
+            <div class="tl-time">14:00〜16:00</div>
+            <div class="tl-text">ベニスビーチ・ボードウォーク 散策</div>
+            <div class="tl-note">ストリートアーティストから手ごろな絵・雑貨を物色 ／ スケートパーク観覧</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot blue"></div>
+            <div class="tl-time">16:00〜18:00</div>
+            <div class="tl-text">アボット・キニー・ブールバード 街歩き</div>
+            <div class="tl-note">小さなギャラリー・ブティック・カフェが並ぶオシャレ通り／絵画・アート雑貨探し</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot green"></div>
+            <div class="tl-time">18:30</div>
+            <div class="tl-text">サンタモニカへ移動 ／ 夕日を眺めながら夕食</div>
+            <div class="tl-note">サンタモニカ・ピアからの夕暮れは必見</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 4 -->
+    <div class="schedule-day">
+      <div class="day-header">
+        <div class="day-num"><div class="d">day</div><div class="n">4</div></div>
+        <div class="day-info">
+          <h3>5月6日（水）射撃体験＆アーツ・ディストリクト</h3>
+          <p>午前：ダウンタウン観光 ／ 午後：実弾射撃体験ツアー</p>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-time">10:00</div>
+            <div class="tl-text">Metro B Lineでダウンタウンへ<span class="tl-tag tag-free">電車</span></div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot blue"></div>
+            <div class="tl-time">10:30〜12:30</div>
+            <div class="tl-text">LAアーツ・ディストリクト 散策</div>
+            <div class="tl-note">倉庫改装ギャラリー・ストリートアート ／ リトル東京周辺も</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot orange"></div>
+            <div class="tl-time">13:00</div>
+            <div class="tl-text">昼食 ／ ホテルに戻り待機</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot red"></div>
+            <div class="tl-time">14:00</div>
+            <div class="tl-text">【BUYMAツアー】日本語ガイドがホテルにお迎え<span class="tl-tag tag-paid">要予約</span></div>
+            <div class="tl-note">レクサスRXでシューティングレンジへ出発</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot red"></div>
+            <div class="tl-time">15:00〜17:00</div>
+            <div class="tl-text">実弾射撃体験（LA Gun Club）</div>
+            <div class="tl-note">ハンドガン・ライフル・ショットガンから選択 ／ 日本語スタッフ対応あり</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot green"></div>
+            <div class="tl-time">18:30</div>
+            <div class="tl-text">ホテルまたはレストランへ送迎で到着</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 5 -->
+    <div class="schedule-day">
+      <div class="day-header">
+        <div class="day-num"><div class="d">day</div><div class="n">5</div></div>
+        <div class="day-info">
+          <h3>5月7日（木）LACMA＆ハリウッド観光</h3>
+          <p>ロサンゼルス定番スポット巡り</p>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-time">10:00</div>
+            <div class="tl-text">LACMA（ロサンゼルス郡立美術館）<span class="tl-tag tag-paid">入場料あり</span></div>
+            <div class="tl-note">Urban Light（202本の街灯アート）・ピカソ・ウォーホルなど</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot orange"></div>
+            <div class="tl-time">13:00</div>
+            <div class="tl-text">ファーマーズマーケット（毎週水・土・日 ※木は要確認）</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot blue"></div>
+            <div class="tl-time">14:30</div>
+            <div class="tl-text">ハリウッド・ブールバード ／ ウォーク・オブ・フェーム</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot blue"></div>
+            <div class="tl-time">15:30</div>
+            <div class="tl-text">グリフィス天文台<span class="tl-tag tag-free">入場無料</span></div>
+            <div class="tl-note">LAの絶景展望台 ／ ハリウッドサインが見える</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot green"></div>
+            <div class="tl-time">夜</div>
+            <div class="tl-text">メルローズアベニュー周辺でショッピング・夕食</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 6 -->
+    <div class="schedule-day">
+      <div class="day-header">
+        <div class="day-num"><div class="d">day</div><div class="n">6</div></div>
+        <div class="day-info">
+          <h3>5月8日（金）帰国日</h3>
+          <p>チェックアウト → LAX → 日本へ</p>
+        </div>
+      </div>
+      <div class="day-body">
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-time">午前</div>
+            <div class="tl-text">ホテルチェックアウト ／ 軽く近隣カフェで朝食</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot orange"></div>
+            <div class="tl-time">出発3時間前</div>
+            <div class="tl-text">Uberで LAX へ移動<span class="tl-tag tag-uber">Uber推奨</span></div>
+            <div class="tl-note">国際線は3時間前到着推奨（渋滞考慮で余裕を持って）</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot green"></div>
+            <div class="tl-time">－</div>
+            <div class="tl-text">日本へ出発 ✈</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- おすすめスポット -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon icon-purple">📍</div>
+      <div>
+        <div class="section-title">おすすめスポット一覧</div>
+        <div class="section-subtitle">Recommended Places</div>
+      </div>
+    </div>
+    <div class="spots-grid">
+      <div class="spot-card">
+        <div class="spot-header">
+          <div class="spot-emoji">🏛</div>
+          <div>
+            <div class="spot-name">ゲティ・センター</div>
+            <div class="spot-area">ブレントウッド / 丘の上</div>
+          </div>
+        </div>
+        <div class="spot-desc">ダ・ヴィンチ、レンブラントなど世界的名画を収蔵。LAの街と海を見渡す絶景庭園も。入場完全無料が最大の魅力。</div>
+        <div class="spot-tags">
+          <span class="spot-tag st-free">無料</span>
+          <span class="spot-tag st-art">アート</span>
+          <span class="spot-tag st-uber">Uber推奨</span>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-header">
+          <div class="spot-emoji">🎨</div>
+          <div>
+            <div class="spot-name">アボット・キニー・ブールバード</div>
+            <div class="spot-area">ベニス</div>
+          </div>
+        </div>
+        <div class="spot-desc">小さなギャラリー・ブティック・カフェが並ぶLA随一のオシャレ通り。手ごろなアート作品や一点物の雑貨が見つかる。</div>
+        <div class="spot-tags">
+          <span class="spot-tag st-art">アート</span>
+          <span class="spot-tag st-walk">徒歩圏内</span>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-header">
+          <div class="spot-emoji">🌊</div>
+          <div>
+            <div class="spot-name">ベニスビーチ・ボードウォーク</div>
+            <div class="spot-area">ベニス / ビーチ沿い</div>
+          </div>
+        </div>
+        <div class="spot-desc">ストリートアーティストが直接作品を販売。手ごろな絵画購入のチャンス。スケートパーク・壁画も見どころ。</div>
+        <div class="spot-tags">
+          <span class="spot-tag st-free">入場無料</span>
+          <span class="spot-tag st-art">アート</span>
+          <span class="spot-tag st-walk">海辺散策</span>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-header">
+          <div class="spot-emoji">🏛</div>
+          <div>
+            <div class="spot-name">LACMA（郡立美術館）</div>
+            <div class="spot-area">ミッドウィルシャー</div>
+          </div>
+        </div>
+        <div class="spot-desc">西海岸最大の美術館。約14万9,000点収蔵。インスタ映えの「Urban Light」（202本の街灯）が名物。</div>
+        <div class="spot-tags">
+          <span class="spot-tag st-art">アート</span>
+          <span class="spot-tag st-metro">Metro近く</span>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-header">
+          <div class="spot-emoji">🌅</div>
+          <div>
+            <div class="spot-name">サンタモニカ</div>
+            <div class="spot-area">サンタモニカ / ビーチ</div>
+          </div>
+        </div>
+        <div class="spot-desc">治安良好の人気エリア。ルート66終点の桟橋・夕日が絶景。サードストリート・プロムナードでショッピングも。</div>
+        <div class="spot-tags">
+          <span class="spot-tag st-walk">徒歩観光</span>
+          <span class="spot-tag st-metro">Expo Line終点</span>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-header">
+          <div class="spot-emoji">🔭</div>
+          <div>
+            <div class="spot-name">グリフィス天文台</div>
+            <div class="spot-area">ロスフェリス / ハリウッドヒルズ</div>
+          </div>
+        </div>
+        <div class="spot-desc">LAの街並みとハリウッドサインが望める絶景展望台。入場・望遠鏡は無料。映画のロケ地としても有名。</div>
+        <div class="spot-tags">
+          <span class="spot-tag st-free">入場無料</span>
+          <span class="spot-tag st-uber">Uber推奨</span>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-header">
+          <div class="spot-emoji">🎬</div>
+          <div>
+            <div class="spot-name">LAアーツ・ディストリクト</div>
+            <div class="spot-area">ダウンタウン東部</div>
+          </div>
+        </div>
+        <div class="spot-desc">倉庫を改装したギャラリーやカフェが点在。現代アートと出会えるクリエイティブな雰囲気。リトル東京も隣接。</div>
+        <div class="spot-tags">
+          <span class="spot-tag st-art">アート</span>
+          <span class="spot-tag st-metro">Metro近く</span>
+          <span class="spot-tag st-exp">スキッドロウ要注意</span>
+        </div>
+      </div>
+
+      <div class="spot-card">
+        <div class="spot-header">
+          <div class="spot-emoji">🔫</div>
+          <div>
+            <div class="spot-name">実弾射撃体験（BUYMAツアー）</div>
+            <div class="spot-area">LA市内（送迎付き）</div>
+          </div>
+        </div>
+        <div class="spot-desc">日本語ガイドが送迎・通訳。ハンドガン・ライフル・ショットガンから選択可。1人参加OK（ガイドが2人目に）。要パスポート。</div>
+        <div class="spot-tags">
+          <span class="spot-tag st-exp">要予約</span>
+          <span class="spot-tag st-uber">送迎込み</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 予算 -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon icon-gold">💰</div>
+      <div>
+        <div class="section-title">予算見積もり</div>
+        <div class="section-subtitle">Estimated Budget（1人あたり）</div>
+      </div>
+    </div>
+
+    <table class="budget-table">
+      <thead>
+        <tr>
+          <th>カテゴリ</th>
+          <th>内容</th>
+          <th style="text-align:right">金額（目安）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="cat">✈ フライト</span></td>
+          <td>東京→オアフ→LA→東京（往復エコノミー）</td>
+          <td class="amt">¥180,000〜</td>
+        </tr>
+        <tr>
+          <td><span class="cat">🏨 ホテル</span></td>
+          <td>ハリウッド周辺 5泊（1泊¥15,000〜¥20,000目安）</td>
+          <td class="amt">¥75,000〜100,000</td>
+        </tr>
+        <tr>
+          <td><span class="cat">🔫 射撃ツアー</span></td>
+          <td>BUYMAガイド料（¥61,300）＋現地実費（約$100）</td>
+          <td class="amt">¥76,000〜</td>
+        </tr>
+        <tr>
+          <td><span class="cat">🚌 市内交通</span></td>
+          <td>Metro・バス（TAP Card）＋Uber/Lyft（夜間・空港）</td>
+          <td class="amt">¥15,000〜20,000</td>
+        </tr>
+        <tr>
+          <td><span class="cat">🍽 食費</span></td>
+          <td>1日¥4,000〜7,000 × 6日（朝は軽食、昼夜はレストラン）</td>
+          <td class="amt">¥25,000〜40,000</td>
+        </tr>
+        <tr>
+          <td><span class="cat">🎨 観光・入場料</span></td>
+          <td>LACMA入場料 ＋ 各スポット（ゲティは無料）</td>
+          <td class="amt">¥5,000〜8,000</td>
+        </tr>
+        <tr>
+          <td><span class="cat">🛍 お土産・アート</span></td>
+          <td>絵画・雑貨など（予算に応じて）</td>
+          <td class="amt">¥10,000〜30,000</td>
+        </tr>
+        <tr>
+          <td><span class="cat">🔐 ESTA</span></td>
+          <td>アメリカ電子渡航認証（$40）</td>
+          <td class="amt">約¥6,000</td>
+        </tr>
+        <tr>
+          <td><span class="cat">🛡 海外保険</span></td>
+          <td>6日間の海外旅行保険（プランにより異なる）</td>
+          <td class="amt">¥3,000〜8,000</td>
+        </tr>
+        <tr class="total-row">
+          <td colspan="2"><strong>合計目安（節約〜標準）</strong></td>
+          <td class="amt">¥395,000〜490,000</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="budget-note">
+      💡 <strong>節約ポイント：</strong>フライト＋ホテルのパッケージプランをExpediaなどで探すと合計で¥220,000〜250,000程度になることも。ゲティ・センター・グリフィス天文台は<strong>無料</strong>なので観光コストを大幅に抑えられます。食費はリトル東京の日本食（ラーメン約$15〜）やIn-N-Out Burger（$5〜）の活用が◎
+    </div>
+  </section>
+
+  <!-- TODOリスト -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon icon-red">✅</div>
+      <div>
+        <div class="section-title">TODOリスト</div>
+        <div class="section-subtitle">出発まで残り約4週間（4月5日現在）</div>
+      </div>
+    </div>
+
+    <!-- 今すぐ -->
+    <div class="todo-group">
+      <div class="todo-group-title tg-red">🔴 今すぐやること（今週中・最優先）</div>
+
+      <div class="todo-item">
+        <div class="todo-check check-red"></div>
+        <div class="todo-content">
+          <div class="todo-title">ESTA（電子渡航認証）を申請する</div>
+          <div class="todo-desc">アメリカ・ハワイ入国に必須。通常数分で承認されるが追加審査で最大30日かかることも。<br>費用：$40 ／ 必ず公式サイトから申請すること（代行詐欺に注意）</div>
+          <a href="https://esta.cbp.dhs.gov/" class="todo-link" target="_blank">→ 公式申請サイト：esta.cbp.dhs.gov</a>
+        </div>
+        <div class="todo-deadline dl-red">🚨 今すぐ</div>
+      </div>
+
+      <div class="todo-item">
+        <div class="todo-check check-red"></div>
+        <div class="todo-content">
+          <div class="todo-title">ホテルを再予約する（エリア変更）</div>
+          <div class="todo-desc">現在候補のDream Inn（Inglewood）は立地・治安の観点から不向き。<br><strong>推奨エリア：</strong>ハリウッド・ハイランド周辺（Metro B Line沿い）のゲスト評価3.5以上のホテル</div>
+          <div class="todo-desc" style="margin-top:4px">Expediaで「Hollywood」エリア・評価3.5以上でフィルターをかけ直すことを推奨</div>
+        </div>
+        <div class="todo-deadline dl-red">🚨 今週中</div>
+      </div>
+    </div>
+
+    <!-- 4月中旬まで -->
+    <div class="todo-group">
+      <div class="todo-group-title tg-orange">🟠 4月中旬〜下旬までにやること</div>
+
+      <div class="todo-item">
+        <div class="todo-check check-orange"></div>
+        <div class="todo-content">
+          <div class="todo-title">BUYMAシューティングツアーを予約する</div>
+          <div class="todo-desc">日本語ガイド付き実弾射撃体験。1人参加OK。料金：¥61,300/組＋現地実費（約$100）<br>無料キャンセル：参加日の7日前まで ／ パスポート持参必須</div>
+          <a href="https://travel.buyma.com/service/a040118/ic010104200117000002/" class="todo-link" target="_blank">→ BUYMA Travel 予約ページ</a>
+        </div>
+        <div class="todo-deadline dl-orange">4月中旬まで</div>
+      </div>
+
+      <div class="todo-item">
+        <div class="todo-check check-orange"></div>
+        <div class="todo-content">
+          <div class="todo-title">海外旅行保険に加入する</div>
+          <div class="todo-desc">クレジットカード付帯保険がある場合は補償内容を確認。不十分な場合はオンラインで即日加入可能。<br>損保ジャパン・AIG・東京海上など各社オンライン受付あり</div>
+        </div>
+        <div class="todo-deadline dl-orange">4月中</div>
+      </div>
+
+      <div class="todo-item">
+        <div class="todo-check check-orange"></div>
+        <div class="todo-content">
+          <div class="todo-title">たびレジ（外務省）に登録する</div>
+          <div class="todo-desc">海外安全情報・緊急時に大使館から連絡が来る無料サービス。登録必須ではないが強く推奨。</div>
+          <a href="https://www.ezairyu.mofa.go.jp/tabireg/" class="todo-link" target="_blank">→ たびレジ登録サイト</a>
+        </div>
+        <div class="todo-deadline dl-orange">4月中</div>
+      </div>
+
+      <div class="todo-item">
+        <div class="todo-check check-orange"></div>
+        <div class="todo-content">
+          <div class="todo-title">現地SIM / eSIMを準備する</div>
+          <div class="todo-desc">Googleマップ・Uber・公共交通アプリを使うためにデータ通信が必須。<br>推奨：airaloなどのeSIMを日本で事前購入・設定（到着直後から使える）</div>
+        </div>
+        <div class="todo-deadline dl-orange">4月中</div>
+      </div>
+    </div>
+
+    <!-- 出発前 -->
+    <div class="todo-group">
+      <div class="todo-group-title tg-green">🟢 出発1〜2週間前までにやること</div>
+
+      <div class="todo-item">
+        <div class="todo-check check-green"></div>
+        <div class="todo-content">
+          <div class="todo-title">必須アプリをスマホにインストール</div>
+          <div class="todo-desc">
+            <strong>Google Maps</strong>（Metro・バスルート）／
+            <strong>Uber</strong>（アカウント登録・支払い設定済みにする）／
+            <strong>Transit</strong>（LA公共交通リアルタイム）／
+            <strong>LA Metro</strong>（TAP Card管理）
+          </div>
+        </div>
+        <div class="todo-deadline dl-green">出発2週間前</div>
+      </div>
+
+      <div class="todo-item">
+        <div class="todo-check check-green"></div>
+        <div class="todo-content">
+          <div class="todo-title">持ち物・荷物を確認する</div>
+          <div class="todo-desc">
+            パスポート（射撃体験・入国時に必須）／ クレジットカード（VISA or Mastercard推奨）／
+            USD現金（射撃場の弾薬代は現金またはカード）／
+            変換プラグ不要（米国はAタイプ＝日本と同じ）／
+            歩きやすいスニーカー（LAは徒歩移動が多い）
+          </div>
+        </div>
+        <div class="todo-deadline dl-green">出発前週</div>
+      </div>
+
+      <div class="todo-item">
+        <div class="todo-check check-green"></div>
+        <div class="todo-content">
+          <div class="todo-title">ホテルへのアーリーチェックインを確認する</div>
+          <div class="todo-desc">安めのホテルはフロント早朝対応なしの場合あり。帰国日の早朝チェックアウト対応も事前に確認しておくと安心。</div>
+        </div>
+        <div class="todo-deadline dl-green">出発前週</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 安全・注意事項 -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon icon-red">⚠️</div>
+      <div>
+        <div class="section-title">安全・注意事項</div>
+        <div class="section-subtitle">Safety & Precautions</div>
+      </div>
+    </div>
+
+    <div class="alert-box">
+      <div class="alert-icon">🚨</div>
+      <div class="alert-text"><strong>UAE（ドバイ）は外務省レベル3（渡航中止勧告）</strong>のため、当初のドバイ経由ベネチアプランは見直し済み。アメリカ（LA）は現時点で問題なし。出発前に外務省海外安全ホームページで最新情報を確認してください。</div>
+    </div>
+
+    <div class="safety-grid">
+      <div class="safety-card">
+        <h4>🚇 公共交通の利用ルール</h4>
+        <ul>
+          <li>昼間（7時〜18時）は比較的安全に利用可</li>
+          <li><strong>18時以降は一人での利用を避ける</strong></li>
+          <li>地下鉄よりバスの方が治安良め</li>
+          <li>不審者がいたら車両を変える</li>
+          <li>夜間移動はUber/Lyft一択</li>
+        </ul>
+      </div>
+      <div class="safety-card">
+        <h4>📍 近づかないエリア</h4>
+        <ul>
+          <li><strong>スキッドロウ</strong>（ダウンタウン中心部）：リトル東京に隣接するため要注意</li>
+          <li><strong>コンプトン・サウスLA</strong>：観光で行く場所ではない</li>
+          <li>どのエリアでも夜の一人歩きは避ける</li>
+          <li>路地や暗い場所には立ち入らない</li>
+        </ul>
+      </div>
+      <div class="safety-card">
+        <h4>💼 盗難・スリ対策</h4>
+        <ul>
+          <li>バッグは体の前で持つ・チャック必須</li>
+          <li>飲食店での荷物置き忘れに注意</li>
+          <li>ATMは人通りの多い場所のみ使用</li>
+          <li>高級ブランド品の着用は控えめに</li>
+          <li>レンタカー利用時は車内に荷物を残さない</li>
+        </ul>
+      </div>
+      <div class="safety-card">
+        <h4>⚖️ アメリカの法律・マナー</h4>
+        <ul>
+          <li><strong>ジェイウォーク（信号無視）は罰金</strong></li>
+          <li>公共の場での飲酒は禁止</li>
+          <li>飲酒は21歳以上（IDの提示を求められることあり）</li>
+          <li>チップはレストラン15〜20%が目安</li>
+          <li>喫煙は指定エリア以外禁止</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 緊急連絡先 -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon icon-orange">📞</div>
+      <div>
+        <div class="section-title">緊急連絡先</div>
+        <div class="section-subtitle">Emergency Contacts</div>
+      </div>
+    </div>
+    <div class="overview-wide">
+      <div class="overview-item">
+        <div class="oi-label">アメリカ緊急通報</div>
+        <div class="oi-value" style="color:#ff5c5c; font-size:20px; font-weight:700">911</div>
+      </div>
+      <div class="overview-item">
+        <div class="oi-label">在ロサンゼルス日本国総領事館</div>
+        <div class="oi-value">+1-213-617-6700</div>
+      </div>
+      <div class="overview-item">
+        <div class="oi-label">外務省海外安全情報</div>
+        <div class="oi-value" style="font-size:13px">anzen.mofa.go.jp</div>
+      </div>
+      <div class="overview-item">
+        <div class="oi-label">加入保険会社</div>
+        <div class="oi-value" style="font-size:13px; color:var(--text-muted)">保険証書に記載の番号</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>ロサンゼルス一人旅 旅行計画書</strong> ｜ 2026年5月3日〜8日 ｜ 作成日：2026年4月5日<br>
+  <span style="color:var(--text-dim)">※ 料金・情報は2026年4月時点のものです。出発前に最新情報を必ずご確認ください。</span>
+</div>
+
+</body>
+</html>

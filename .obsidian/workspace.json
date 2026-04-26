@@ -15,9 +15,9 @@
               "state": {
                 "file": "network/r-system_ネットワーク構成図.canvas",
                 "viewState": {
-                  "x": 267.73318013864633,
-                  "y": 149.42449207630432,
-                  "zoom": -0.6666666666666665
+                  "x": 40,
+                  "y": 135,
+                  "zoom": -0.6384017596826168
                 }
               },
               "icon": "lucide-layout-dashboard",
@@ -186,8 +186,11 @@
       "bases:新規ベースを作成": false
     }
   },
-  "active": "28762de9cf663558",
+  "active": "8f49ea3ec990a910",
   "lastOpenFiles": [
+    "sandbox/20260426/la_travel_plan.html",
+    "sandbox/20260426",
+    "sandbox",
     "README.md",
     "network/r-system_ネットワーク構成図.canvas",
     "network",
