@@ -19,7 +19,7 @@ btn.onclick = async () => {
     btn.disabled = true;
     try {
         const templater = app.plugins.plugins["templater-obsidian"].templater;
-        const templateFile = app.vault.getAbstractFileByPath("templates/script/Create-Java-Infrastructure.md");
+        const templateFile = app.vault.getAbstractFileByPath("../../../script/Create-Java-Infrastructure.md");
         const targetFile = app.vault.getAbstractFileByPath(dv.current().file.path);
         await templater.write_template_to_file(templateFile, targetFile);
         btn.setText("✅ 完了！");

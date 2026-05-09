@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "develop/requirements/requirements-template.md",
+                "file": "develop/db-table/template_table（テンプレートテーブル）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "requirements-template"
+              "title": "template_table（テンプレートテーブル）"
             }
           }
         ]
@@ -164,13 +164,23 @@
               "icon": "lucide-list",
               "title": "r-system_ネットワーク構成図のアウトライン"
             }
+          },
+          {
+            "id": "049f0b2628df0918",
+            "type": "leaf",
+            "state": {
+              "type": "claudian-view",
+              "state": {},
+              "icon": "bot",
+              "title": "Claudian"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -180,35 +190,51 @@
       "daily-notes:今日のデイリーノートを開く": false,
       "templates:テンプレートを挿入": false,
       "command-palette:コマンドパレットを開く": false,
-      "bases:新規ベースを作成": false
+      "bases:新規ベースを作成": false,
+      "obsidian42-brat:BRAT": false,
+      "templater-obsidian:Templater": false,
+      "claudian:Open Claudian": false
     }
   },
   "active": "28762de9cf663558",
   "lastOpenFiles": [
+    "develop/script/Create-Java-Infrastructure.md",
+    "develop/done/20260509_sample_1.md",
+    "develop/api/doc/user-register/ユーザー登録API/POST-user-register-ユーザー登録API.md",
+    "develop/api/doc/user/ユーザー取得API/GET-user-ユーザー取得API.md",
+    "develop/done/sample-requirements.md",
+    "develop/api/doc/user/ユーザー取得API",
+    "develop/api/doc/user-register/ユーザー登録API",
+    "develop/api/doc/user-register",
+    "develop/db-table/doc/user-management/tbl_user（ユーザー）.md",
+    "develop/db-table/doc/user-management",
+    "develop/read-doc/sample-requirements.md",
+    "develop/script/Java-MainFile.md",
+    "develop/db-table/template_table（テンプレートテーブル）.md",
+    "develop/doc/ドキュメントからの自動生成について.md",
+    "develop/api/template_api.md",
+    "develop/requirements/requirements-template.md",
+    "develop/script/code-templates/_Java-Template/Infrastructure/_Mapper.md",
+    "develop/script/code-templates/_Java-Template/Infrastructure/_Repository.md",
+    "develop/script/code-templates/_Java-Template/Infrastructure/_Entity.md",
+    "develop/script/code-templates/_Java-Template/Infrastructure/_MapperXml.md",
+    "develop/script/code-templates/_Java-Template/Contexts/_AggregateList.md",
+    "develop/script/code-templates/_Java-Template/Contexts/_Aggregate.md",
+    "develop/script/code-templates/_Laravel-Template/Contexts/_AggregateList.md",
+    "develop/script/code-templates/_Laravel-Template/Contexts/_Aggregate.md",
+    "develop/script/code-templates/_Laravel-Template/Infrastructure/_Repository.md",
+    "develop/script/code-templates/_Laravel-Template/Infrastructure/_Model.md",
+    "develop/script/code-templates/_Java-Template/Infrastructure",
+    "develop/script/code-templates/_Java-Template/Contexts",
+    "develop/script/code-templates/_Laravel-Template/Infrastructure",
+    "develop/script/code-templates/_Laravel-Template/Contexts",
+    "develop/script/code-templates/_Java-Template",
+    "develop/script/code-templates/_Laravel-Template",
     "develop/requirements/doc/sample-requirements.md",
     "Pasted image 20260509161825.png",
-    "develop/requirements/requirements-template.md",
     "develop/CLAUDE.md",
     "develop/api/doc/user/POST-user-ユーザー情報の登録API.md",
     "develop/api/doc/user/GET-user-ユーザー情報の取得API.md",
-    "develop/api/doc/user/user-ユーザー情報",
-    "develop/api/doc/user",
-    "develop/db-table/doc/tbl_user（ユーザー）.md",
-    "develop/done/20260509_sample_1.md",
-    "develop/doc/ドキュメントからの自動生成について.md",
-    "develop/read-doc/sample-requirements.md",
-    "develop/api/template_api.md",
-    "develop/requirements/doc",
-    "develop/requirements/新しいフォルダー",
-    "develop/requirements",
-    "develop/新しいフォルダー",
-    "develop/api/doc",
-    "develop/api/新しいフォルダー",
-    "develop/api",
-    "develop/db-table/template_table（テンプレートテーブル）.md",
-    "develop/db-table/doc",
-    "README.md",
-    "develop/ドキュメントからの自動生成について.md",
     "network/r-system_ネットワーク構成図.canvas"
   ]
 }
