@@ -19,14 +19,17 @@ btn.onclick = async () => {
     btn.disabled = true;
     try {
         const templater = app.plugins.plugins["templater-obsidian"].templater;
-        const templateFile = app.vault.getAbstractFileByPath("../../../script/Create-Java-Infrastructure.md");
+        const templateFile = app.vault.getAbstractFileByPath("develop/script/Create-Java-Infrastructure.md");
+        if (!templateFile) {
+            throw new Error("テンプレートファイルが見つかりません: develop/script/Create-Java-Infrastructure.md");
+        }
         const targetFile = app.vault.getAbstractFileByPath(dv.current().file.path);
         await templater.write_template_to_file(templateFile, targetFile);
         btn.setText("✅ 完了！");
-        btn.disabled = false;
     } catch(e) {
         btn.setText("❌ エラー");
-        console.error(e);
+        console.error("詳細エラー:", e.message);
+    } finally {
         btn.disabled = false;
     }
 };

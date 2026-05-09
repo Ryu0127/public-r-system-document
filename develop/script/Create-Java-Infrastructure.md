@@ -44,7 +44,7 @@ const parseColumns = async () => {
 // フォルダ作成関数
 // =====================
 const createOutputFolder = async (baseFolder) => {
-    const folderPath = `${baseFolder}/../generate-code/${getTimestamp()}`;
+    const folderPath = `${baseFolder}/../../../generate-code/${getTimestamp()}`;
     await app.vault.createFolder(`${folderPath}/src/main/java/com/example/api/infrastructure/entity`);
     await app.vault.createFolder(`${folderPath}/src/main/java/com/example/api/infrastructure/repository`);
     await app.vault.createFolder(`${folderPath}/src/main/java/com/example/api/infrastructure/mapper`);
