@@ -11,17 +11,14 @@
             "id": "28762de9cf663558",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "network/r-system_ネットワーク構成図.canvas",
-                "viewState": {
-                  "x": 40,
-                  "y": 135,
-                  "zoom": -0.6384017596826168
-                }
+                "file": "develop/CLAUDE.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-layout-dashboard",
-              "title": "r-system_ネットワーク構成図"
+              "icon": "lucide-file",
+              "title": "CLAUDE"
             }
           }
         ]
@@ -186,14 +183,25 @@
       "bases:新規ベースを作成": false
     }
   },
-  "active": "8f49ea3ec990a910",
+  "active": "28762de9cf663558",
   "lastOpenFiles": [
-    "sandbox/20260426/la_travel_plan.html",
-    "sandbox/20260426",
-    "sandbox",
+    "develop/api/template_api.md",
+    "develop/requirements/requirements-template.md",
+    "develop/requirements/doc",
+    "develop/requirements/新しいフォルダー",
+    "develop/requirements",
+    "develop/新しいフォルダー",
+    "develop/api/doc",
+    "develop/api/新しいフォルダー",
+    "develop/api",
+    "develop/db-table/template_table（テンプレートテーブル）.md",
+    "develop/db-table/doc",
+    "develop/db-table/新しいフォルダー",
+    "develop/templates",
     "README.md",
-    "network/r-system_ネットワーク構成図.canvas",
-    "network",
-    "script"
+    "develop/CLAUDE.md",
+    "develop/ドキュメントからの自動生成について.md",
+    "develop/doc/ドキュメントからの自動生成について.md",
+    "network/r-system_ネットワーク構成図.canvas"
   ]
 }
