@@ -34,6 +34,6 @@ btn.onclick = async () => {
     }
 };
 ```
-※コードは「/generate-code/{作成年月日_時刻}」内に作成されます
+※コードは「/develop/generate-code/{作成年月日_時刻}」内に作成されます
 
 ---
