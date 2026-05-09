@@ -9,16 +9,25 @@ const toPascalCase = (str) =>
 
 const classNames = allTables.map(toClassName);
 
-// インポート：Entity / Repository
+// インポート：Entity
 const entityImports = classNames
     .map(c => `import com.example.api.infrastructure.entity.${c};`)
     .join("\n");
 
+// インポート：Aggregate / AggregateList
+const aggregateImports = classNames
+    .map(c => [
+        `import com.example.api.contexts.domain.aggregate.${c}Aggregate;`,
+        `import com.example.api.contexts.domain.collection.aggregate.${c}AggregateList;`
+    ].join("\n"))
+    .join("\n");
+
+// インポート：Repository
 const repositoryImports = classNames
     .map(c => `import com.example.api.infrastructure.repository.${c}Repository;`)
     .join("\n");
 
-// インポート：Request / Response（メソッドごと）
+// インポート：Request / Response
 const resourceImports = apis.map(a =>
     `import com.example.api.application.resource.request.${a.className}Request;\n` +
     `import com.example.api.application.resource.response.${a.className}Response;`
@@ -30,7 +39,7 @@ const autowiredFields = classNames.map(c => {
     return `    @Autowired\n    private ${c}Repository ${field}Repository;`;
 }).join("\n\n");
 
-// メソッド（Request/Responseを引数・戻り値に使用）
+// メソッド
 const methods = apis.map(a => {
     const method     = a.http.toLowerCase();
     const annotation = `@${toPascalCase(method)}Mapping(API_URL)`;
@@ -51,6 +60,7 @@ const methods = apis.map(a => {
 tR += `package com.example.api.application.controller;
 
 ${entityImports}
+${aggregateImports}
 ${repositoryImports}
 ${resourceImports}
 import io.swagger.v3.oas.annotations.Operation;
