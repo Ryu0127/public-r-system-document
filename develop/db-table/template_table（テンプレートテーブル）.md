@@ -4,11 +4,11 @@ tableNameJp: テンプレートテーブル
 className: TemplateTable
 ---
 
-| カラム名       | 型            | Javaの型        | NULL | 備考      |
-| ---------- | ------------ | ------------- | ---- | ------- |
-| id         | BIGINT       | Long          | NO   | PK      |
-| created_at | DATETIME     | LocalDateTime | YES   | 作成日時    |
-| updated_at | DATETIME     | LocalDateTime | YES   | 更新日時    |
+| カラム名       | 型        | Javaの型        | NULL | 備考   |
+| ---------- | -------- | ------------- | ---- | ---- |
+| id         | BIGINT   | Long          | NO   | PK   |
+| created_at | DATETIME | LocalDateTime | YES  | 作成日時 |
+| updated_at | DATETIME | LocalDateTime | YES  | 更新日時 |
 
 ```dataviewjs
 const btn = this.container.createEl("button", { text: "コード自動生成" });

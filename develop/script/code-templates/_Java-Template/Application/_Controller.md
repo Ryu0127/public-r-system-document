@@ -39,8 +39,8 @@ const autowiredFields = classNames.map(c => {
     return `    @Autowired\n    private ${c}Repository ${field}Repository;`;
 }).join("\n\n");
 
-// メソッド
-const methods = apis.map(a => {
+// publicメソッド（エントリーポイント）
+const publicMethods = apis.map(a => {
     const method     = a.http.toLowerCase();
     const annotation = `@${toPascalCase(method)}Mapping(API_URL)`;
     const hasRequest = a.requestJson && Object.keys(a.requestJson).length > 0;
@@ -52,9 +52,38 @@ const methods = apis.map(a => {
     @Operation(summary = "${method}-${a.apiNameJp}")
     ${annotation}
     public ${a.className}Response ${method}(${requestArg}) throws Exception {
-        // TODO: implement
-        return new ${a.className}Response();
+        // ① SELECT
+        // TODO: 必要に応じてSELECT処理を追加
+
+        // ② Aggregate作成・更新
+        // TODO: Aggregateの作成・更新処理を追加
+
+        // ③ 永続化
+        // TODO: 永続化処理を追加
+
+        // TODO: Response.build() の引数にプリミティブ値とAggregateを渡す
+        return ${a.className}Response.build(/* TODO: statusCode, message, aggregate */);
     }`;
+}).join("\n\n");
+
+// privateメソッド（Aggregate生成・Response生成）
+const privateMethods = apis.map(a => {
+    const classNames2 = [...new Set([...a.selectTables, ...a.writeTables])].map(toClassName);
+    const hasRequest  = a.requestJson && Object.keys(a.requestJson).length > 0;
+
+    // Aggregate生成メソッド（INSERT/UPDATE系のみ）
+    const aggregateMethods = a.writeTables.map(t => {
+        const c     = toClassName(t);
+        const field = c.charAt(0).toLowerCase() + c.slice(1);
+        const requestParam = hasRequest ? `${a.className}Request request` : "";
+        return `    private ${c}Aggregate create${c}Aggregate(${requestParam}) {
+        // TODO: factoryNew の引数に request の必須フィールドを渡す
+        //       created_at / updated_at は factoryNew 内で自動セットされる
+        return ${c}Aggregate.factoryNew(/* TODO: request.field */);
+    }`;
+    }).join("\n\n");
+
+    return [aggregateMethods].filter(Boolean).join("\n\n");
 }).join("\n\n");
 
 tR += `package com.example.api.application.controller;
@@ -80,7 +109,15 @@ public class ${apiName}Controller {
 
 ${autowiredFields}
 
-${methods}
+    // =====================
+    // public
+    // =====================
+${publicMethods}
+
+    // =====================
+    // private
+    // =====================
+${privateMethods}
 }
 `;
 %>
