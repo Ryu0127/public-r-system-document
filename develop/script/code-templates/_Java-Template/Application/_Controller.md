@@ -46,6 +46,23 @@ const publicMethods = apis.map(a => {
     const hasRequest = a.requestJson && Object.keys(a.requestJson).length > 0;
     const requestArg = hasRequest ? `@RequestBody ${a.className}Request request` : "";
 
+    // INSERT/UPDATE系のAggregate生成・永続化の仮実装
+    const writeOps = a.writeTables.map(t => {
+        const c     = toClassName(t);
+        const field = c.charAt(0).toLowerCase() + c.slice(1);
+        return [
+            `        ${c}Aggregate ${field}Aggregate = this.create${c}Aggregate(null);`,
+            `        ${field}Repository.insertGeneratedKeys(${field}Aggregate);`,
+        ].join("\n");
+    }).join("\n\n");
+
+    // SELECT系の仮実装
+    const selectOps = a.selectTables.map(t => {
+        const c     = toClassName(t);
+        const field = c.charAt(0).toLowerCase() + c.slice(1);
+        return `        ${c}Aggregate ${field}Aggregate = ${field}Repository.find(null);`;
+    }).join("\n");
+
     return `    /**
      * ${method}-${a.apiNameJp}
      */
@@ -53,16 +70,15 @@ const publicMethods = apis.map(a => {
     ${annotation}
     public ${a.className}Response ${method}(${requestArg}) throws Exception {
         // ① SELECT
-        // TODO: 必要に応じてSELECT処理を追加
+${selectOps || "        // SELECT処理なし"}
 
         // ② Aggregate作成・更新
-        // TODO: Aggregateの作成・更新処理を追加
+${writeOps || "        // Aggregate作成・更新処理なし"}
 
-        // ③ 永続化
-        // TODO: 永続化処理を追加
+        // ③ 永続化（上記に含む）
 
-        // TODO: Response.build() の引数にプリミティブ値とAggregateを渡す
-        return ${a.className}Response.build(/* TODO: statusCode, message, aggregate */);
+        // TODO: build() の引数を適切な値に修正する
+        return ${a.className}Response.build(null, null);
     }`;
 }).join("\n\n");
 
@@ -79,7 +95,7 @@ const privateMethods = apis.map(a => {
         return `    private ${c}Aggregate create${c}Aggregate(${requestParam}) {
         // TODO: factoryNew の引数に request の必須フィールドを渡す
         //       created_at / updated_at は factoryNew 内で自動セットされる
-        return ${c}Aggregate.factoryNew(/* TODO: request.field */);
+        return ${c}Aggregate.factoryNew(null);
     }`;
     }).join("\n\n");
 

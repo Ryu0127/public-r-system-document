@@ -73,7 +73,7 @@ const innerBuildMethods = (hasInnerClass && hasAggregate)
             })
             .join("\n");
         const fieldSetLines = Object.keys(val)
-            .map(k => `        ${key}.${k} = // TODO: ${k};`)
+            .map(k => `        ${key}.${k} = null; // TODO: ${k}`)
             .join("\n");
 
         return `    private static ${innerClassName} build${innerClassName}(${aggregateParams}) {

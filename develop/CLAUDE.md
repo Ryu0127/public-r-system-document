@@ -224,8 +224,80 @@ Controller / Request / Response の生成完了後、
 public post()                      ← エントリーポイント。処理の呼び出しのみ
     ↓ 呼び出す
 private createXxxAggregate()       ← EntityへのマッピングとAggregate生成のみ
-private buildXxxResponse()         ← Responseの組み立てのみ
 ```
+
+---
+
+### null差し替えルール
+
+コード生成時点では以下の箇所が `null` で仮実装されている。
+実装統合フェーズで以下のルールに従って差し替えること。
+
+#### ① createXxxAggregate() の引数 null
+```java
+// 生成時
+return HisLockDetectionAggregate.factoryNew(null);
+
+// 差し替え後（API定義書のRequestBodyとテーブル定義書の必須カラムを照合して決定）
+return HisLockDetectionAggregate.factoryNew(
+    request.deviceId,    // ← RequestBodyのフィールドをマッピング
+    request.deviceType
+);
+```
+
+#### ② SELECT の引数 null
+```java
+// 生成時
+HisLockDetectionAggregate hisLockDetectionAggregate = hisLockDetectionRepository.find(null);
+
+// 差し替え後（RequestBodyまたはパスパラメータのIDを使用）
+HisLockDetectionAggregate hisLockDetectionAggregate = hisLockDetectionRepository.find(request.id);
+```
+
+#### ③ Response.build() の引数 null
+```java
+// 生成時
+return SwitchBotLockPostResponse.build(null, null);
+
+// 差し替え後（statusCode=0固定、messageは処理内容に応じて設定）
+return SwitchBotLockPostResponse.build(0, "success");
+
+// Bodyがある場合はAggregateを渡す
+return SwitchBotLockGetResponse.build(0, "success", hisLockDetectionAggregate);
+```
+
+#### ④ buildBody() 内のフィールド null
+```java
+// 生成時
+private static Body buildBody(HisLockDetectionAggregate hisLockDetectionAggregate) {
+    HisLockDetection hisLockDetection = hisLockDetectionAggregate.getEntity();
+    Body body = new Body();
+    body.deviceId   = null; // TODO: deviceId
+    body.lockStatus = null; // TODO: lockStatus
+    return body;
+}
+
+// 差し替え後（API定義書のResponseとテーブル定義書のカラムを照合して決定）
+private static Body buildBody(HisLockDetectionAggregate hisLockDetectionAggregate) {
+    HisLockDetection hisLockDetection = hisLockDetectionAggregate.getEntity();
+    Body body = new Body();
+    body.deviceId   = hisLockDetection.deviceId;    // ← Entityのフィールドをマッピング
+    body.lockStatus = hisLockDetection.lockStatus;
+    return body;
+}
+```
+
+---
+
+#### null差し替えの判断基準
+
+| 箇所 | 参照するファイル | 判断内容 |
+| --- | --- | --- |
+| factoryNew の引数 | API定義書のRequestBody + テーブル定義書の必須カラム | RequestBodyのどのフィールドがどのカラムに対応するか |
+| find の引数 | API定義書のRequestBody | IDに該当するフィールドを特定 |
+| build の引数 | API定義書のResponse | statusCode・messageの値・Bodyの有無 |
+| build のAggregate引数 | API定義書のDB-SELECT | SELECTしたAggregateを渡す |
+| buildBody のフィールド | API定義書のResponse + テーブル定義書のカラム | ResponseのフィールドとEntityのフィールドを照合してマッピング |
 
 ---
 
