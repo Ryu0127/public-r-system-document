@@ -1,7 +1,10 @@
 <%*
-const { className, apiNameJp, requestFields, requestInnerClasses } = tp.user.data;
+const { className, apiNameJp, requestFields, requestInnerClasses, packageConfig } = tp.user.data;
 
-tR += `package com.example.api.application.resource.request;
+const subdir = packageConfig.subdirectory ? `.${packageConfig.subdirectory}` : "";
+const pkg = `com.example.api.application.resource.request${subdir}`;
+
+tR += `package ${pkg};
 
 /**
  * ${apiNameJp} - Request

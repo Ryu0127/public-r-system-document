@@ -1,5 +1,13 @@
 <%*
-const { apis, allTables, apiName, apiNameJp, url } = tp.user.data;
+const { apis, allTables, apiName, apiNameJp, url, packageConfig } = tp.user.data;
+
+const subdir = packageConfig.subdirectory ? `.${packageConfig.subdirectory}` : "";
+const pkgInfra = `com.example.api.infrastructure${subdir}`;
+const pkgContext = `com.example.api.contexts${subdir}`;
+const pkgAppBase = `com.example.api.application`;
+const pkgApp = `${pkgAppBase}.controller${subdir}`;
+const pkgReq = `${pkgAppBase}.resource.request${subdir}`;
+const pkgRes = `${pkgAppBase}.resource.response${subdir}`;
 
 const toClassName = (tableName) =>
     tableName.split("_").map(s => s.charAt(0).toUpperCase() + s.slice(1)).join("");
@@ -11,26 +19,26 @@ const classNames = allTables.map(toClassName);
 
 // インポート：Entity
 const entityImports = classNames
-    .map(c => `import com.example.api.infrastructure.entity.${c};`)
+    .map(c => `import ${pkgInfra}.entity.${c};`)
     .join("\n");
 
 // インポート：Aggregate / AggregateList
 const aggregateImports = classNames
     .map(c => [
-        `import com.example.api.contexts.domain.aggregate.${c}Aggregate;`,
-        `import com.example.api.contexts.domain.collection.aggregate.${c}AggregateList;`
+        `import ${pkgContext}.domain.aggregate.${c}Aggregate;`,
+        `import ${pkgContext}.domain.collection.aggregate.${c}AggregateList;`
     ].join("\n"))
     .join("\n");
 
 // インポート：Repository
 const repositoryImports = classNames
-    .map(c => `import com.example.api.infrastructure.repository.${c}Repository;`)
+    .map(c => `import ${pkgInfra}.repository.${c}Repository;`)
     .join("\n");
 
 // インポート：Request / Response
 const resourceImports = apis.map(a =>
-    `import com.example.api.application.resource.request.${a.className}Request;\n` +
-    `import com.example.api.application.resource.response.${a.className}Response;`
+    `import ${pkgReq}.${a.className}Request;\n` +
+    `import ${pkgRes}.${a.className}Response;`
 ).join("\n");
 
 // @Autowiredフィールド
@@ -102,7 +110,7 @@ const privateMethods = apis.map(a => {
     return [aggregateMethods].filter(Boolean).join("\n\n");
 }).join("\n\n");
 
-tR += `package com.example.api.application.controller;
+tR += `package ${pkgApp};
 
 ${entityImports}
 ${aggregateImports}

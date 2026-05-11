@@ -1,7 +1,11 @@
 <%*
-const { tableNameJp, className, columns } = tp.user.data;
+const { tableNameJp, className, columns, packageConfig } = tp.user.data;
 
-tR += `package com.example.api.infrastructure.entity;
+const pkg = packageConfig.subdirectory 
+    ? `com.example.api.infrastructure.entity.${packageConfig.subdirectory}`
+    : `com.example.api.infrastructure.entity`;
+
+tR += `package ${pkg};
 
 import lombok.Data;
 

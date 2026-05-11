@@ -1,9 +1,12 @@
 <%*
-const { tableNameJp, className } = tp.user.data;
+const { tableNameJp, className, packageConfig } = tp.user.data;
 
-tR += `package com.example.api.infrastructure.mapper;
+const subdir = packageConfig.subdirectory ? `.${packageConfig.subdirectory}` : "";
+const pkgInfra = `com.example.api.infrastructure${subdir}`;
 
-import com.example.api.infrastructure.entity.${className};  
+tR += `package ${pkgInfra}.mapper;
+
+import ${pkgInfra}.entity.${className};  
 import org.apache.ibatis.annotations.Mapper;  
 import org.apache.ibatis.annotations.Param;  
   

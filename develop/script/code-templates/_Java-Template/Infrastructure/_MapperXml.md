@@ -1,13 +1,16 @@
 <%*
-const { packageName, className, tableName, columns, pk } = tp.user.data;
+const { className, tableName, columns, pk, packageConfig } = tp.user.data;
+
+const subdir = packageConfig.subdirectory ? `.${packageConfig.subdirectory}` : "";
+const pkgInfra = `com.example.api.infrastructure${subdir}`;
 
 tR += `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.api.infrastructure.mapper.${className}Mapper">
+<mapper namespace="${pkgInfra}.mapper.${className}Mapper">
 	<sql id="tableName">${tableName}</sql>
-    <resultMap id="${className}ResultMap" type="com.example.api.infrastructure.entity.${className}">
+    <resultMap id="${className}ResultMap" type="${pkgInfra}.entity.${className}">
 ${columns.map(c => `        <result property="${c.field}" column="${c.column}" />`).join("\n")}
     </resultMap>
     <select id="all" resultMap="${className}ResultMap">

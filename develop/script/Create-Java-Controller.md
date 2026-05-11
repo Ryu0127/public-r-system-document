@@ -19,6 +19,19 @@ const toClassName = (tableName) =>
     tableName.split("_").map(s => s.charAt(0).toUpperCase() + s.slice(1)).join("");
 
 // =====================
+// パッケージ構成関数
+// =====================
+const getPackageConfig = (fm) => {
+    const basePackage = "com.example.api";
+    const subdir = fm.subdirectory && fm.subdirectory.trim() 
+        ? "." + fm.subdirectory.toLowerCase() 
+        : "";
+    const fullPackage = basePackage + subdir;
+    const packagePath = fullPackage.replace(/\./g, "/");
+    return { basePackage, subdir, fullPackage, packagePath };
+};
+
+// =====================
 // JSON → Javaフィールド変換
 // =====================
 const inferJavaType = (key, value) => {
@@ -110,12 +123,15 @@ const parseApiFile = async (file) => {
 // =====================
 // フォルダ作成関数
 // =====================
-const createOutputFolder = async (baseFolder) => {
+const createOutputFolder = async (baseFolder, packageConfig) => {
     const folderPath = `${baseFolder}/../../../../generate-code/${getTimestamp()}`;
-    await app.vault.createFolder(`${folderPath}/src/main/java/com/example/api/application/controller`);
-    await app.vault.createFolder(`${folderPath}/src/main/java/com/example/api/application/resource/request`);
-    await app.vault.createFolder(`${folderPath}/src/main/java/com/example/api/application/resource/response`);
-    return folderPath;
+    const basePkgPath = "com/example/api";
+    const subdir = packageConfig.subdirectory ? `/${packageConfig.subdirectory}` : "";
+    
+    await app.vault.createFolder(`${folderPath}/src/main/java/${basePkgPath}/application/controller${subdir}`);
+    await app.vault.createFolder(`${folderPath}/src/main/java/${basePkgPath}/application/resource/request${subdir}`);
+    await app.vault.createFolder(`${folderPath}/src/main/java/${basePkgPath}/application/resource/response${subdir}`);
+    return { folderPath, ...packageConfig };
 };
 
 // =====================
@@ -135,7 +151,15 @@ const main = async () => {
         ...apis.flatMap(a => a.selectTables),
         ...apis.flatMap(a => a.writeTables),
     ])];
-    const outputFolder = await createOutputFolder(currentDir);
+    
+    // フロントマターからパッケージ構成を取得
+    const firstFileCache = app.metadataCache.getFileCache(files[0]);
+    const fm = firstFileCache?.frontmatter ?? {};
+    const packageConfig = getPackageConfig(fm);
+    
+    const outputFolder = await createOutputFolder(currentDir, packageConfig);
+    const basePkgPath = "com/example/api";
+    const subdir = packageConfig.subdirectory ? `/${packageConfig.subdirectory}` : "";
 
     // --- Controller ---
     tp.user.data = {
@@ -144,10 +168,11 @@ const main = async () => {
         apiName:   apis[0].apiName,
         apiNameJp: apis[0].apiNameJp,
         url:       apis[0].url,
+        packageConfig,
     };
     const controllerContent = await tp.file.include("[[develop/script/code-templates/_Java-Template/Application/_Controller]]");
     await app.vault.create(
-        `${outputFolder}/src/main/java/com/example/api/application/controller/${apis[0].apiName}Controller.java`,
+        `${outputFolder.folderPath}/src/main/java/${basePkgPath}/application/controller${subdir}/${apis[0].apiName}Controller.java`,
         controllerContent
     );
 
@@ -160,17 +185,18 @@ const main = async () => {
             requestInnerClasses:  api.requestInnerClasses,
             responseFields:       api.responseFields,
             responseInnerClasses: api.responseInnerClasses,
+            packageConfig,
         };
 
         const requestContent  = await tp.file.include("[[develop/script/code-templates/_Java-Template/Application/_Request]]");
         const responseContent = await tp.file.include("[[develop/script/code-templates/_Java-Template/Application/_Response]]");
 
         await app.vault.create(
-            `${outputFolder}/src/main/java/com/example/api/application/resource/request/${api.className}Request.java`,
+            `${outputFolder.folderPath}/src/main/java/${basePkgPath}/application/resource/request${subdir}/${api.className}Request.java`,
             requestContent
         );
         await app.vault.create(
-            `${outputFolder}/src/main/java/com/example/api/application/resource/response/${api.className}Response.java`,
+            `${outputFolder.folderPath}/src/main/java/${basePkgPath}/application/resource/response${subdir}/${api.className}Response.java`,
             responseContent
         );
     }

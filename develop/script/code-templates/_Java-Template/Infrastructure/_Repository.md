@@ -1,12 +1,16 @@
 <%*
-const { tableNameJp, className } = tp.user.data;
+const { tableNameJp, className, packageConfig } = tp.user.data;
 
-tR += `package com.example.api.infrastructure.repository;
+const subdir = packageConfig.subdirectory ? `.${packageConfig.subdirectory}` : "";
+const pkgInfra = `com.example.api.infrastructure${subdir}`;
+const pkgContext = `com.example.api.contexts${subdir}`;
 
-import com.example.api.contexts.domain.aggregate.${className}Aggregate;  
-import com.example.api.contexts.domain.collection.aggregate.${className}AggregateList;
-import com.example.api.infrastructure.entity.${className};  
-import com.example.api.infrastructure.mapper.${className}Mapper;  
+tR += `package ${pkgInfra}.repository;
+
+import ${pkgContext}.domain.aggregate.${className}Aggregate;  
+import ${pkgContext}.domain.collection.aggregate.${className}AggregateList;
+import ${pkgInfra}.entity.${className};  
+import ${pkgInfra}.mapper.${className}Mapper;  
 import org.springframework.beans.factory.annotation.Autowired;  
 import org.springframework.stereotype.Repository;  
   

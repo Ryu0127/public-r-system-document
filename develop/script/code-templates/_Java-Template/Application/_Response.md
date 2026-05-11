@@ -1,9 +1,13 @@
 <%*
-const { className, apiNameJp, responseFields, responseInnerClasses, responseJson, selectClassNames } = tp.user.data;
+const { className, apiNameJp, responseFields, responseInnerClasses, responseJson, selectClassNames, packageConfig } = tp.user.data;
+
+const subdir = packageConfig.subdirectory ? `.${packageConfig.subdirectory}` : "";
+const pkgContext = `com.example.api.contexts${subdir}`;
+const pkg = `com.example.api.application.resource.response${subdir}`;
 
 // Aggregateのimport
 const aggregateImports = (selectClassNames || [])
-    .map(c => `import com.example.api.contexts.domain.aggregate.${c}Aggregate;`)
+    .map(c => `import ${pkgContext}.domain.aggregate.${c}Aggregate;`)
     .join("\n");
 
 // トップレベルのプリミティブフィールド
@@ -85,7 +89,7 @@ ${fieldSetLines}
     }).join("\n\n")
     : "";
 
-tR += `package com.example.api.application.resource.response;
+tR += `package ${pkg};
 
 ${aggregateImports}
 

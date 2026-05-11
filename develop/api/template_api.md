@@ -3,6 +3,7 @@ apiNameJp:
 apiName: 
 url: 
 HTTP: 
+subdirectory:
 ---
 
 ### API-Schema

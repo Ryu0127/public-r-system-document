@@ -1,9 +1,12 @@
 <%*
-const { className } = tp.user.data;
+const { className, packageConfig } = tp.user.data;
 
-tR += `package com.example.api.contexts.domain.collection.aggregate;  
+const subdir = packageConfig.subdirectory ? `.${packageConfig.subdirectory}` : "";
+const pkgContext = `com.example.api.contexts${subdir}`;
+
+tR += `package ${pkgContext}.domain.collection.aggregate;  
   
-import com.example.api.contexts.domain.aggregate.${className}Aggregate;  
+import ${pkgContext}.domain.aggregate.${className}Aggregate;  
   
 import java.util.Arrays;  
 import java.util.List;

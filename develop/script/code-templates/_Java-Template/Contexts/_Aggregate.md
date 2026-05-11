@@ -1,5 +1,9 @@
 <%*
-const { className, columns } = tp.user.data;
+const { className, columns, packageConfig } = tp.user.data;
+
+const subdir = packageConfig.subdirectory ? `.${packageConfig.subdirectory}` : "";
+const pkgInfra = `com.example.api.infrastructure${subdir}`;
+const pkgContext = `com.example.api.contexts${subdir}`;
 
 // 必須パラメータ = NULL:NO かつ PK・AI でないカラム
 const requiredColumns = columns.filter(c =>
@@ -55,9 +59,9 @@ ${updatedSetForUpdate}
         return new ${className}Aggregate(entity);
     }`;
 
-tR += `package com.example.api.contexts.domain.aggregate;
+tR += `package ${pkgContext}.domain.aggregate;
 
-import com.example.api.infrastructure.entity.${className};${datetimeImport}
+import ${pkgInfra}.entity.${className};${datetimeImport}
 import org.springframework.beans.BeanUtils;
 
 public class ${className}Aggregate {

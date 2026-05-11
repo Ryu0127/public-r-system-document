@@ -2,6 +2,7 @@
 tableName: template_table
 tableNameJp: テンプレートテーブル
 className: TemplateTable
+subdirectory:
 ---
 
 | カラム名       | 型        | Javaの型        | NULL | 備考   |
