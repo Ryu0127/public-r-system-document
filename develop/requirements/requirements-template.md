@@ -2,6 +2,7 @@
 featureName: User
 featureNameJp: ユーザー
 date: 2026-05-09
+subdirectory:
 ---
 
 ## 概要
